@@ -57,7 +57,7 @@ class _SecondPageState extends State<SecondPage> {
                   image: AssetImage("img.jpg"),
                 ),
                 borderRadius: const BorderRadius.all(Radius.circular(1000.0)),
-                border: widget.size >= 240 && widget.size <= 260
+                border: widget.size >= 290 && widget.size <= 310
                     ? Border.all(
                         color: Colors.red,
                         width: 4,

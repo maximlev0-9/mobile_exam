@@ -20,6 +20,7 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> {
   final Random random = Random();
+
   // TODO: make image circular
   // TODO: add border color if size is +- equal to 500 - size (in between 240 and 260)
   @override
@@ -49,11 +50,22 @@ class _FirstPageState extends State<FirstPage> {
           onTap: () {
             widget.setShowFirstPage();
           },
-          child: Image(
-            image: const AssetImage("img.jpg"),
-            height: widget.size.toDouble(),
-            width: widget.size.toDouble(),
-          ),
+          child: Container(
+              height: widget.size.toDouble(),
+              width: widget.size.toDouble(),
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  fit: BoxFit.cover,
+                  image: const AssetImage("img.jpg"),
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(1000.0)),
+                border: widget.size >= 290 && widget.size <= 310
+                    ? Border.all(
+                        color: Colors.red,
+                        width: 4,
+                      )
+                    : null,
+              )),
         ),
       ),
     );
