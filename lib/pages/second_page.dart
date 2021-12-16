@@ -7,7 +7,7 @@ class SecondPage extends StatefulWidget {
   final int size;
   final Function setShowFirstPage;
 
-  SecondPage(
+  const SecondPage(
       {Key? key,
       required this.setSize,
       required this.size,
@@ -48,14 +48,22 @@ class _SecondPageState extends State<SecondPage> {
           onTap: () {
             widget.setShowFirstPage();
           },
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(8.0),
-            child: Image(
-              image: const AssetImage("img.jpg"),
+          child: Container(
               height: 600 - widget.size.toDouble(),
               width: 600 - widget.size.toDouble(),
-            ),
-          ),
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage("img.jpg"),
+                ),
+                borderRadius: const BorderRadius.all(Radius.circular(1000.0)),
+                border: widget.size >= 240 && widget.size <= 260
+                    ? Border.all(
+                        color: Colors.red,
+                        width: 4,
+                      )
+                    : null,
+              )),
         ),
       ),
     );
